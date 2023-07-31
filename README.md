@@ -1,7 +1,7 @@
 # PyWaveClus: Python Spike Detection and Clustering
 
 PyWaveClus is a Python package for spike detection, feature extraction, and clustering in neuroscience data. It utilizes the SPC (Super Paramagnetic Clustering) algorithm from the [SPC repository](https://github.com/ferchaure/SPC) for clustering.
-The package is designed to work with the SpikeInterface library, which provides a unified interface to various spike sorting tools and recording formats.
+The package is designed to work with the SpikeInterface library from [SpikeInterface repository](https://github.com/SpikeInterface/spikeinterface), which provides a unified interface to various spike sorting tools and recording formats.
 
 ## Overview
 
