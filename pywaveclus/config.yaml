@@ -1,0 +1,28 @@
+# config.yaml
+spike_detection:
+  detect_method: 'neg'
+  segment_duration: 5 # in minutes
+  std_min: 5
+  std_max: 50
+  w_pre: 20
+  w_post: 44
+  min_ref_per: 1.5
+
+feature_extraction:
+  method: 'haar'
+  haar_level: 4
+  haar_ls: 64
+  haar_max_inputs: 48
+  haar_min_inputs: 10
+  haar_nd: 10
+
+extract_waveform:
+  detect_method: 'neg'
+  w_pre: 20
+  w_post: 44
+  int_factor: 5
+
+clustering:
+  plot_temperature: True
+  min_clus: 150
+
