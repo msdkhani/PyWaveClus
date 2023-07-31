@@ -18,11 +18,12 @@ You can install PyWaveClus using pip:
 
 ```bash
 pip install pywaveclus
+```
 
 ## Getting Start
 Here's a brief overview of how to use PyWaveClus in your project:
 
-'''python
+```python
 import pywaveclus.spike_detection as sd
 import pywaveclus.feature_extraction as fe
 import pywaveclus.clustering as clu
@@ -44,7 +45,7 @@ features = fe.feature_extraction(spikes_waveforms)
 labels, metadata = clu.SPC_clustering(features)
 
 # Further analysis and visualization of clustering results can be done here
-
+```
 What We Did in This Pipeline
 
 In this package, we implemented a Python version of WaveClus, which uses the SPC algorithm for clustering. The main components of the pipeline are:
