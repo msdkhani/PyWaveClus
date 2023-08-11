@@ -20,7 +20,7 @@ def haar_feature_extraction(spikes, level=4, ls=20+44, max_inputs=np.ceil(0.75 *
     return features
 
 def haar_feature_extraction_for_channel(spikes, level, ls, max_inputs, min_inputs, nd):
-    nspk = spikes.shape[0]
+    nspk = len(spikes)
     # Determine the number of coefficients based on the desired level and the length of the original data
     # Create a 2D array 'cc' to store the wavelet coefficients for each spike
     cc = np.zeros((nspk, ls))
@@ -61,9 +61,6 @@ def haar_feature_extraction_for_channel(spikes, level, ls, max_inputs, min_input
 
         thr_knee_diff = all_above1[np.where(temp_bla[1:] == 1)[0][0]] + (nd / 2)
         inputs = max_inputs - thr_knee_diff 
-        print('Max Input:',max_inputs)
-        print('Inputs: ',inputs)
-        print('thr_knee_diff: ',thr_knee_diff)
     else:
         inputs = min_inputs
 
@@ -104,7 +101,7 @@ def pca_feature_extraction_for_channel(spikes, n_components=10):
 
     return inspk_pca
 
-def feature_extraction(waveform):
+def feature_extraction(waveforms):
     config = load_feature_extraction_config()
     method = config['method']
 
@@ -114,10 +111,10 @@ def feature_extraction(waveform):
         max_inputs = config['haar_max_inputs']
         min_inputs = config['haar_min_inputs']
         nd = config['haar_nd']
-        return haar_feature_extraction(waveform, level, ls, max_inputs, min_inputs, nd)
+        return haar_feature_extraction(waveforms, level, ls, max_inputs, min_inputs, nd)
+        
     elif method == 'pca':
         n_components = config['pca_n_components']
-        return pca_feature_extraction(waveform, n_components)
+        return pca_feature_extraction(waveforms, n_components)
     else:
         raise ValueError(f"Invalid value {method} for argument 'method'. Must be 'haar' or 'pca'.")
-

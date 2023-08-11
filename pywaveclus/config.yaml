@@ -15,6 +15,7 @@ feature_extraction:
   haar_max_inputs: 48
   haar_min_inputs: 10
   haar_nd: 10
+  pca_n_components: 10
 
 extract_waveform:
   detect_method: 'neg'
