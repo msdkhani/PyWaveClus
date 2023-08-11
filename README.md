@@ -16,13 +16,7 @@ This package provides a streamlined pipeline for analyzing electrophysiological 
 
 4. **Artifacts Removal**: Remove the noise and artifact based on the bandle (Optional)
 
-## Installation
 
-You can install PyWaveClus using pip:
-
-```bash
-pip install pywaveclus
-```
 
 ## Getting Start
 Here's a brief overview of how to use PyWaveClus in your project:
@@ -49,6 +43,30 @@ features = fe.feature_extraction(spikes_waveforms)
 labels, metadata = clu.SPC_clustering(features)
 
 # Further analysis and visualization of clustering results can be done here
+```
+Or simply just call waveclus:
+```python
+from pywaveclus.waveclus import spike_sorting_pipeline
+
+OUTPUT_FOLDER= '/'
+PROJECT_NAME = 'test'
+
+
+def main():
+    bundle_dict = ...
+    recording = ...
+    recording_bp2 = ...
+    recording_bp4 = ...
+    
+    spike_sorting_pipeline(recording, 
+                       recording_bp2, 
+                       recording_bp4, 
+                       bundle_dict,
+                       artifact_removal=True,
+                       save_dir=f'{OUTPUT_FOLDER}/{PROJECT_NAME}/')
+    
+if __name__ == '__main__':
+    main()
 ```
 ## What We Did in This Pipeline
 
